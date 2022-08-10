@@ -9,8 +9,15 @@ const (
 )
 
 type Player struct {
-	name     string
-	winCount int
+	Name     string
+	WinCount int
+}
+
+func NewPlayer(name string) *Player {
+	p := new(Player)
+	p.Name = name
+	p.WinCount = 0
+	return p
 }
 
 func (p *Player) showHand() int {
@@ -28,10 +35,14 @@ func (p *Player) showHand() int {
 
 func (p *Player) notifyResult(bool result) {
 	if result == true {
-		winCount += 1
+		p.WinCount += 1
 	}
 }
 
 func (p *Player) getWinCount() int {
-	return winCount
+	return P.WinCount
+}
+
+func (p *Player) getName() string {
+	return p.Name
 }
