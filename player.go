@@ -33,14 +33,14 @@ func (p *Player) showHand() int {
 	return hand
 }
 
-func (p *Player) notifyResult(bool result) {
+func (p *Player) notifyResult(result bool) {
 	if result == true {
 		p.WinCount += 1
 	}
 }
 
 func (p *Player) getWinCount() int {
-	return P.WinCount
+	return p.WinCount
 }
 
 func (p *Player) getName() string {
