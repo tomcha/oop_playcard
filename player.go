@@ -8,13 +8,15 @@ const (
 	paper   int = 2
 )
 
+type Playeri interface {
+}
+
 type Player struct {
 	Name     string
 	WinCount int
 }
 
-func NewPlayer(name string) *Player {
-	p := new(Player)
+func (p *Player) NewPlayer(name string) *Player {
 	p.Name = name
 	p.WinCount = 0
 	return p
