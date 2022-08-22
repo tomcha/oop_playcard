@@ -9,6 +9,11 @@ const (
 )
 
 type Playeri interface {
+	NewPlayer(name string) Playeri
+	showHand() int
+	notifyResult(result bool)
+	getWinCount() int
+	getName() string
 }
 
 type Player struct {
@@ -16,7 +21,7 @@ type Player struct {
 	WinCount int
 }
 
-func (p *Player) NewPlayer(name string) *Player {
+func (p *Player) NewPlayer(name string) Playeri {
 	p.Name = name
 	p.WinCount = 0
 	return p

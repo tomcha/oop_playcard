@@ -6,13 +6,13 @@ type Judge struct {
 	name string
 }
 
-func (j *Judge) startJanken(p1 *Player, p2 *Player) {
+func (j *Judge) startJanken(p1 Playeri, p2 Playeri) {
 	fmt.Println("じゃんけん開始")
 
 	for i := 0; i < 3; i++ {
 		fmt.Printf("%d回戦目\n", i+1)
-
-		winner := j.judgeJanken(p1, p2)
+		var winner Playeri
+		winner = j.judgeJanken(p1, p2)
 
 		if winner != nil {
 			fmt.Printf("%s が勝ちました\n", winner.getName())
@@ -29,10 +29,11 @@ func (j *Judge) startJanken(p1 *Player, p2 *Player) {
 	} else {
 		fmt.Println("引き分けです")
 	}
+
 }
 
-func (j *Judge) judgeJanken(p1 *Player, p2 *Player) *Player {
-	var winner *Player
+func (j *Judge) judgeJanken(p1 Playeri, p2 Playeri) Playeri {
+	var winner Playeri
 	var p1Hand int
 	var p2Hand int
 
@@ -56,14 +57,14 @@ func (j *Judge) judgeJanken(p1 *Player, p2 *Player) *Player {
 	return winner
 }
 
-func (j *Judge) judgeFinalWinner(p1 *Player, p2 *Player) *Player {
-	var winner *Player
+func (j *Judge) judgeFinalWinner(p1 Playeri, p2 Playeri) Playeri {
+	var winner Playeri
 	p1WinCount := p1.getWinCount()
 	p2WinCount := p2.getWinCount()
 
 	if p1WinCount > p2WinCount {
 		winner = p1
-	} else if p1.WinCount < p2WinCount {
+	} else if p1WinCount < p2WinCount {
 		winner = p2
 	}
 	return winner
