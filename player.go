@@ -1,7 +1,5 @@
 package main
 
-import "math/rand"
-
 const (
 	stone   int = 0
 	scissor int = 1
@@ -14,11 +12,17 @@ type Playeri interface {
 	notifyResult(result bool)
 	getWinCount() int
 	getName() string
+	setTactics(tactics Tactics)
 }
 
 type Player struct {
 	Name     string
 	WinCount int
+	tactics  Tactics
+}
+
+func (p *Player) setTactics(tactics Tactics) {
+	p.tactics = tactics
 }
 
 func (p *Player) NewPlayer(name string) Playeri {
@@ -29,14 +33,7 @@ func (p *Player) NewPlayer(name string) Playeri {
 
 func (p *Player) showHand() int {
 	var hand int
-	t := rand.Intn(3)
-	if t == 0 {
-		hand = stone
-	} else if t == 1 {
-		hand = scissor
-	} else {
-		hand = paper
-	}
+	hand = p.tactics.readTactics()
 	return hand
 }
 
