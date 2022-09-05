@@ -11,7 +11,7 @@ func main() {
 	yamada.Name = "山田さん"
 
 	var murataTactics Tactics
-	murataTactics = randomTactics{}
+	murataTactics = stoneOnlyTactics{}
 	murata.setTactics(murataTactics)
 
 	var yamadaTactics Tactics
