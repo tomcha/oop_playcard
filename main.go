@@ -15,7 +15,7 @@ func main() {
 	murata.setTactics(murataTactics)
 
 	var yamadaTactics Tactics
-	yamadaTactics = randomTactics{}
+	yamadaTactics = askTactics{}
 	yamada.setTactics(yamadaTactics)
 
 	saito.startJanken(&murata, &yamada)
