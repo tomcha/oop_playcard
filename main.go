@@ -15,7 +15,7 @@ func main() {
 	murata.setTactics(murataTactics)
 
 	var yamadaTactics Tactics
-	yamadaTactics = askTactics{}
+	yamadaTactics = &cyclicTactics{stone}
 	yamada.setTactics(yamadaTactics)
 
 	saito.startJanken(&murata, &yamada)
