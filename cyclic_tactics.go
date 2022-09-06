@@ -6,12 +6,6 @@ type cyclicTactics struct {
 
 func (t *cyclicTactics) readTactics() int {
 	nextHand := t.nowHand
-	if t.nowHand == stone {
-		t.nowHand = scissor
-	} else if t.nowHand == scissor {
-		t.nowHand = paper
-	} else {
-		t.nowHand = stone
-	}
+	t.nowHand = t.nowHand%3 + 1
 	return nextHand
 }
